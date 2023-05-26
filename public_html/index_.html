@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="shortcut icon" href="https://img.icons8.com/office/16/null/chatbot.png" type="image/x-icon">
+    <title>Чат-Бот Помощник</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/assets/plugins/bootstrap-5.0.2-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/plugins/bootstrap-5.0.2-dist/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="/assets/plugins/bootstrap-5.0.2-dist/css/bootstrap-reboot.css" rel="stylesheet">
+    <link href="/assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/chatbot.css" rel="stylesheet">
+
+    <script src="/assets/plugins/jquery360/jquery-3.6.0.js"></script>
+    <script src="/assets/plugins/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+    <!--    <script src="/assets/plugins/bootstrap-5.0.2-dist/js/bootstrap.bundle.js"></script>-->
+    <!--    <script src="/assets/plugins/bootstrap-5.0.2-dist/js/jquery.min.js"></script>-->
+    <!--    <script src="/assets/plugins/bootstrap-5.0.2-dist/js/popper.min.js"></script>-->
+    <!--    <script src="/assets/plugins/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>-->
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/chatbot.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <div class="img-head">
+                    <a href="../">
+                        <!--картинка робота - https://icons8.com/icon/set/chatbot/office-->
+                        <img src="https://img.icons8.com/office/80/null/chatbot.png"
+                             class="img-rounded"
+                             style="width: 50px;"
+                             alt=""
+                        >
+                    </a>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="title-head">
+                    <a href="../">
+                        <h4 class="section-title" style="margin-left: 15px"> Чат-Бот Помощник</h4>
+                    </a>
+                </div>
+            </div>
+            <!--            <div class="col-2 text-sm-right" >-->
+            <!--                    <span class="login-head">-->
+            <!--                        User-->
+            <!--                    </span>-->
+            <!--            </div>-->
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <!-- Navigation -->
+                <nav class="navbar navbar-expand-md navbar-dark">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                                aria-expanded="false" aria-label="Переключатель навигации">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Перейти в диалог</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/info.html">Информация о проекте</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+    <section>
+        <div class="page-content page-container" id="page-content">
+            <div class="container d-flex justify-content-center">
+                <div class="col-md-12">
+                    <div class="card card-bordered">
+                        <div class="card-header">
+                            <h4 class="card-title"><strong>Чат:</strong></h4>
+                            <!--                                <a class="btn btn-xs btn-secondary" href="#" data-abc="true">Let's Chat App</a>-->
+                        </div>
+
+                        <div class="form-group mx-auto text-center">
+                            <label for="module_dataset">Выберите модуль общения:</label>
+                            <br>
+                            <select class="form-control-sm" id="module_dataset">
+                                <option value="uunit"  >Датасет УУНиТ</option>
+                                <option value="laravel">Разработка сайтов (курсовая)</option>
+<!--                                <option value="null">Конференция</option>-->
+                            </select>
+                        </div>
+                        <br><br>
+                        <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
+                             style="overflow-y: scroll !important; height:400px !important;">
+
+                            <br>
+
+                            <div class="row chat-dialog" style="padding-left: 15px">
+                                <div class="media media-chat">
+                                    <img class="avatar"
+                                         src="https://img.icons8.com/office/40/null/chatbot.png"
+                                         alt="...">
+                                    <div class="media-body answer-bot">
+                                        <p>Задайте свой вопрос, чтобы начать общение.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+                            </div>
+                        </div>
+
+                        <div class="publisher bt-1 border-light" style="margin-top: 25px; margin-bottom: 25px;">
+                            <input id="quest_text" class="publisher-input" type="text"
+                                   placeholder="Введите свой вопрос" maxlength="50">
+                            <label class="inform-text number-characters-entered">0/50</label>
+                            <a id="send_question_click" class="publisher-btn text-info" href="#" data-abc="true">
+                                <i class="fa fa-send" style="font-size:24px"></i>
+                            </a>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+
+<footer class="">
+    <!--        класс fixed-bottom чтобы закрпеить подвал внизу-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="title-footer">
+                    Уфа 2023 г.
+                </div>
+            </div>
+        </div>
+        <br>
+        <!--        <div class="row">-->
+        <!--            <div class="col-md-12 text-center">-->
+        <!--                Сайт является дипломной работой-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <br>
+        <div class="row">
+            <div class="col-md-8">
+
+            </div>
+            <!--            <div class="col-md-4 text-left">-->
+            <!--                Сайт является дипломной работой-->
+            <!--                <br>-->
+            <!--                Группа: ПМИ-42, БашГу ФМиИТ-->
+            <!--                <br>-->
+            <!--                &lt;!&ndash;                EMail: <a href="mailto:dim-sultanov@outlook.com">dim-sultanov@outlook.com</a>&ndash;&gt;-->
+            <!--            </div>-->
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+
+

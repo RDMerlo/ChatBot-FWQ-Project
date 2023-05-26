@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Обработка данных форм</title>
+<!-- Bootstrap CSS (jsDelivr CDN) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- Bootstrap Bundle JS (jsDelivr CDN) -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script>
+    $(function()
+            {
+                $('#clickme').click(function(){
+                    let quest = $('#quest_text').val();
+                    if (quest !== ""){
+                        $.ajax({
+                            url: "/cgi-bin/chatbot.py",
+                            type: "get",
+                            datatype:"json",
+                            data: {'quest_text':quest},
+                            success: function(response){
+                                console.log(response)
+                                if (response.success){
+                                    let msg = "\n---------------------\n" +
+                                              "Вы: " + quest + "\n" + "Бот: " + response.message;
+                                    $('#chat_text').val($.trim($('#chat_text').val() + msg));
+                                } else {
+                                    let msg = "\n---------------------\n" +
+                                              "Извините, не удалось получить ответ.";
+                                    $('#chat_text').val($.trim($('#chat_text').val() + msg));
+                                }
+                            },
+                            error: function (jqXHR, exception) {
+                                var msg = '';
+                                if (jqXHR.status === 0) {
+                                    msg = 'Not connect.\n Verify Network.';
+                                } else if (jqXHR.status == 404) {
+                                    msg = 'Requested page not found. [404]';
+                                } else if (jqXHR.status == 500) {
+                                    msg = 'Internal Server Error [500].';
+                                } else if (exception === 'parsererror') {
+                                    msg = 'Requested JSON parse failed.';
+                                } else if (exception === 'timeout') {
+                                    msg = 'Time out error.';
+                                } else if (exception === 'abort') {
+                                    msg = 'Ajax request aborted.';
+                                } else {
+                                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                                }
+                                console.log(msg);
+                            },
+                        });
+                    }
+
+                });
+            });
+
+</script>
+
+</head>
+<body>
+    <br><br>
+    <div class="row">
+    <div class="form-inline">
+      <label class="my-1 mr-2" for="quest_text">Preference</label>
+      <input type="text" class="form-control" id="quest_text" placeholder="Вопрос">
+
+<!--      <div class="custom-control custom-checkbox my-1 mr-sm-2">-->
+<!--        <input type="checkbox" class="custom-control-input" id="customControlInline">-->
+<!--        <label class="custom-control-label" for="customControlInline">Remember my preference</label>-->
+<!--      </div>-->
+
+      <button id="clickme" class="btn btn-primary my-1">Submit</button>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <textarea id="chat_text" rows="12"></textarea>
+    </div>
+</body>
+</html>

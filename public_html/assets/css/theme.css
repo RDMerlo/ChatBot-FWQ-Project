@@ -1,0 +1,141 @@
+body{
+    /*Freepik*/
+    background-image: url("https://img.freepik.com/free-vector/dark-minimal-hexagons-background_79603-1455.jpg?w=740&t=st=1683383079~exp=1683383679~hmac=15d36fed36f27b29e00d78e23ef56b83e750005637b5688ece5d5e50a8b1dc8e");
+}
+
+header{
+    padding-top: 25px;
+    background-color: #4d19cb;
+    min-height: 100px;
+    text-align: left;
+    box-shadow: 20px 5px 10px #3a3838;
+    border-radius: 0px 0px 15px 15px;
+}
+
+#content{
+    min-height:100%;
+}
+
+article{
+    padding: 50px;
+    height: auto;
+    /*background-position: bottom;*/
+    background-repeat: repeat-y;
+    /*background-size: cover;*/
+}
+
+section{
+    /* padding: 50px; */
+    min-height: 480px;
+    /*margin: 5px 5px 5px 5px;*/
+    background-color: #ffffff;
+    border: 1px solid #616161;
+    border-radius: 20px;
+}
+
+footer{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: auto;
+    background-color: #4d19cb;
+    box-shadow: -5px -5px 10px rgba(33, 33, 33, 0.75);
+    min-height: 50px;
+    text-align: center;
+    color: white;
+    min-height: 150px;
+}
+
+.img-head{
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.title-head, .title-head a{
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+.login-head{
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .title-head{
+        padding-left: 25px;
+    }
+
+    article{
+        padding: 5px;
+        /*height: auto;*/
+        /*background-position: bottom;*/
+        /*background-repeat: repeat-y;*/
+        /*background-size: cover;*/
+    }
+
+    section{
+        /* padding: 50px; */
+        /*min-height: 480px;*/
+        /*margin: 5px 5px 5px 5px;*/
+        /*background-color: #ffffff;*/
+        border: 0;
+        /*border-radius: 0;*/
+    }
+}
+
+.navbar{
+    margin-left: 0;
+    padding-left: 0;
+}
+
+nav{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navbar-toggler{
+    text-align: left;
+}
+
+nav a{
+    margin-right: 40px;
+    color: white;
+}
+
+.active{
+    color: #32dc14;
+}
+
+nav a:hover{
+    color: #32dc14;
+}
+
+.list-group a{
+    font-weight: bold;
+}
+
+.active a{
+    color: #ffffff;
+}
+
+.btn-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 16px;
+}
+
+.btn-rounded {
+    border-radius: 19px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+}
